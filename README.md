@@ -216,6 +216,8 @@ python3 colorize.py num_ordered_brethalyser_tests.csv "Number of ordered breatha
 python3 colorize.py num_positive_brethalyser_tests.csv "Number of positive breathalyser tests"
 ```
 
+![slika](https://github.com/user-attachments/assets/b6e34173-4bfb-4db5-a378-47d19c3cf750)
+
 ### Draw ratio maps
 Green map without legend.
 
@@ -225,3 +227,7 @@ python3 colorize-ratios.py accidents_with_any_alcohol_per_ordered_breathalysers.
 python3 colorize-ratios.py accidents_with_exceeded_alcohol_per_ordered_breathalysers.csv "Accidents with exceeded alcohol value per ordered breathalysers"
 python3 colorize-ratios.py positive_breathalysers_per_ordered_breathalysers.csv "Positive breathalysers per ordered breathalysers"
 ```
+
+![slika](https://github.com/user-attachments/assets/c8908567-884b-41c1-8677-6bba55800a88)
+
+![ratios](https://github.com/user-attachments/assets/c269ac55-cfb5-4ae2-a278-29311c2ea097)

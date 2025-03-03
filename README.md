@@ -151,7 +151,8 @@ ON t.police_administrative_unit = a.police_administrative_unit
 WHERE COALESCE(t.police_administrative_unit, a.police_administrative_unit) IS NOT NULL;
 ```
 
-## Drawing maps
+## Exporting data for drawing maps
+The available SVG file contains only (smaller) administrative units, not police administrative units. Since police administrative units consist of multiple smaller administrative units, we need to group them so that all units within the same police administrative unit share the same value. This is done by assigning identical value to grouped units in the SVG file. Data with that values are then exported to CSV files.
 
 ### all_accidents
 ```
@@ -214,8 +215,14 @@ WHERE COALESCE(t.police_administrative_unit, a.police_administrative_unit) IS NO
 \COPY (SELECT unitid, (num_positive_breathalyser_tests::DECIMAL / num_ordered_breathalyser_tests::DECIMAL * 10) AS positive_breathalysers_per_ordered_breathalysers FROM accidents_and_breathalysers, units WHERE (accidents_and_breathalysers.police_administrative_unit = units.police_administrative_unit) ORDER BY 1) TO 'positive_breathalysers_per_ordered_breathalysers.csv' WITH (FORMAT csv, HEADER true);
 ```
 
+## Drawing maps
+
+For drawing maps we use Python files [colorize.py](colorize.py) and [colorize-ratios.py](colorize-ratios.py). File `colorize.py` draws a map with blue shades and a legend and file `colorize-ratios.py` draws a map with green shades and without a legend. Parameters are:
+- input file with data in CSV format
+- title of the map
+
 ### Draw basic maps
-Blue map with legend.
+*Blue map with legend.*
 
 ```
 python3 colorize.py all_accidents.csv "Number of all traffic accidents"
@@ -230,7 +237,7 @@ python3 colorize.py num_positive_brethalyser_tests.csv "Number of positive breat
 ![slika](https://github.com/user-attachments/assets/b6e34173-4bfb-4db5-a378-47d19c3cf750)
 
 ### Draw ratio maps
-Green map without legend.
+*Green map without legend.*
 
 ```
 python3 colorize-ratios.py ordered_breathalysers_per_all_accidents.csv "Ordered breathalyser tests per all accidents"

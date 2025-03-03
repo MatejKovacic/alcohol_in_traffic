@@ -2,11 +2,11 @@
 
 **Source of data**: Slovenian police (obtained by Access to Public Information Act), and [IK Data Hub](https://ikdatahub.si).
 
-In December 2024 I received a file [PrometUkrepi_PolicijskeEnote_2005_2024_na_dan_20241206.xlsx], containing police measures (breathalyzer, ethylometer, professional examination) related to the alcoholism of road users for the period from 1. 1. 2005 to 31. 10. 2024, by police administrative unit and area of ​​work. File [Alcohol_tests_2005_2024.csv] contains preprocessed data:
+In December 2024 I received a file [PrometUkrepi_PolicijskeEnote_2005_2024_na_dan_20241206.xlsx](PrometUkrepi_PolicijskeEnote_2005_2024_na_dan_20241206.xlsx), containing police measures (breathalyzer, ethylometer, professional examination) related to the alcoholism of road users for the period from 1. 1. 2005 to 31. 10. 2024, by police administrative unit and area of ​​work. File [Alcohol_tests_2005_2024.csv](Alcohol_tests_2005_2024.csv) contains preprocessed data:
 - export of Excel tab of a data by police administrative unit and administrative unit ("PP in UE" tab);
 - data are translated into English.
 
-[IK Data Hub](https://ikdatahub.si) contains data about traffic accidents. I dowloaded absolute numbers of traffic accidents by administrative units and saved them into a file [Traffic_accidents_by_Administrative_Unit.csv]:
+[IK Data Hub](https://ikdatahub.si) contains data about traffic accidents. I dowloaded absolute numbers of traffic accidents by administrative units and saved them into a file [Traffic_accidents_by_Administrative_Unit.csv](Traffic_accidents_by_Administrative_Unit.csv):
 - all traffic accidents;
 - traffic accidents without alcohol (filter "Breathalyser test value");
 - traffic accidents with any alcohol (filter "Breathalyser test value");

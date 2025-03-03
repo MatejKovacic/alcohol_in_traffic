@@ -1,6 +1,17 @@
 # Alcohol in traffic accidents and breathalyser tests in Slovenia
 
-**Source of data**: Slovenian police (obtained by Access to Public Information Act), and [IK Data Hub](https://ikdatahub.si)..
+**Source of data**: Slovenian police (obtained by Access to Public Information Act), and [IK Data Hub](https://ikdatahub.si).
+
+In December 2024 I received a file [PrometUkrepi_PolicijskeEnote_2005_2024_na_dan_20241206.xlsx], containing police measures (breathalyzer, ethylometer, professional examination) related to the alcoholism of road users for the period from 1. 1. 2005 to 31. 10. 2024, by police administrative unit and area of ​​work. File [Alcohol_tests_2005_2024.csv] contains preprocessed data:
+- export of Excel tab of a data by police administrative unit and administrative unit ("PP in UE" tab);
+- data are translated into English.
+
+[IK Data Hub](https://ikdatahub.si) contains data about traffic accidents. I dowloaded absolute numbers of traffic accidents by administrative units and saved them into a file [Traffic_accidents_by_Administrative_Unit.csv]:
+- all traffic accidents;
+- traffic accidents without alcohol (filter "Breathalyser test value");
+- traffic accidents with any alcohol (filter "Breathalyser test value");
+- traffic accidents with allowed alcohol (filter "Breathalyser test value": 0.01 - 0.24 g/kg);
+- traffic accidents with exceeded alcohol (filter "Breathalyser test value": more than 0.24 g/kg);
 
 ## Database
 
@@ -65,12 +76,12 @@ SELECT police_administrative_unit, sum(num_ordered_tests) AS num_ordered_brethal
 
 ## Traffic accidents data
 
-Source of data: `https://ikdatahub.si/en/dashboard/traffic-accidents` (`All cases` with appropriate filters; CSV files were then merged to a file `Traffic_accidents_by_AU_per_10k.csv`).
+Source of data: `https://ikdatahub.si/en/dashboard/traffic-accidents` (`All cases` with appropriate filters; CSV files were then merged to a file `Traffic_accidents_by_Administrative_Unit.csv`).
 
 ```
 CREATE TABLE accidents (unitid text, all_accidents decimal(16), without_alcohol decimal(16), with_alcohol decimal(16), with_allowed_alcohol decimal(16), with_exceeded_alcohol decimal(16));
 
-\COPY accidents from 'Traffic_accidents_by_AU_per_10k.csv' with csv header delimiter E'\t' quote '"';
+\COPY accidents from 'Traffic_accidents_by_Administrative_Unit.csv' with csv header delimiter E'\t' quote '"';
 ```
 
 ### View accidents data grouped by Police administrative unit

@@ -249,3 +249,15 @@ python3 colorize-ratios.py positive_breathalysers_per_ordered_breathalysers.csv 
 ![slika](https://github.com/user-attachments/assets/c8908567-884b-41c1-8677-6bba55800a88)
 
 ![ratios](https://github.com/user-attachments/assets/c269ac55-cfb5-4ae2-a278-29311c2ea097)
+
+## Interpretation
+
+Ratio of how many breathalyzer tests were ordered per all accidents (ordered breathalyzers per 100 accidents) shows that there are differences among police administrative units. Some police units conduct more breathalyzer tests per accident than others.
+
+It seems that **PU Nova Gorica** has the highest alcohol-related accident ratio, however they conduct relatively less breathalyzer tests than others. **PU Novo mesto** and **PU Murska Sobota** on the other hand have the highest testing rates.
+
+This could indicate differences in enforcement policies. Data show a possible under-testing issue in **PU Nova Gorica** (more testing could be needed to identify alcohol-impaired drivers). On the other hand, in **Novo mesto** and **Murska Sobota**, police are ordering more breathalyzer tests per accident, which indicate a stricter enforcement policy, but it could also mean a higher **suspicion** of alcohol involvement in driving.
+
+The ratio of how many accidents involved alcohol out of all the breathalyzer tests conducted (Accidents with any alcohol / Ordered breathalyzers) suggests higher correlation between accidents and alcohol consumption in **PU Nova Gorica** and **PU Koper**.
+
+The data show the need for comparing enforcement policies with police units like **PU Novo mesto** (which has a high testing rate) and **PU Nova Gorica** (and also **PU Koper**). There could be some local factors (Nova Gorica nad Koper are border regions, there could be different cultural drinking habits or they might have more night clubs) or differences in enforcement policies **or resources**, that might explain why Nova Gorica has such a high alcohol-accident correlation and under-testing.

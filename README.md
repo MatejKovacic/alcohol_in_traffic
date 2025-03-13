@@ -197,20 +197,20 @@ The available SVG file contains only (smaller) administrative units, not police 
 ```
 
 ### accidents_with_any_alcohol_per_ordered_breathalysers
-(accidents_with_any_alcohol / num_ordered_breathalyser_tests * 1000)
+(accidents_with_any_alcohol / num_ordered_breathalyser_tests * 100)
 
 ```
 \COPY (SELECT unitid, (accidents_with_any_alcohol::DECIMAL / num_ordered_breathalyser_tests::DECIMAL * 100) AS accidents_with_any_alcohol_per_ordered_breathalysers FROM accidents_and_breathalysers, units WHERE (accidents_and_breathalysers.police_administrative_unit = units.police_administrative_unit) ORDER BY 1) TO 'accidents_with_any_alcohol_per_ordered_breathalysers.csv' WITH (FORMAT csv, HEADER true);
 ```
 
 ### accidents_with_exceeded_alcohol_per_ordered_breathalysers
-(accidents_exceeded_alcohol / num_ordered_breathalyser_tests * 1000)
+(accidents_exceeded_alcohol / num_ordered_breathalyser_tests * 100)
 ```
 \COPY (SELECT unitid, (accidents_exceeded_alcohol::DECIMAL / num_ordered_breathalyser_tests::DECIMAL * 100) AS accidents_with_exceeded_alcohol_per_ordered_breathalysers FROM accidents_and_breathalysers, units WHERE (accidents_and_breathalysers.police_administrative_unit = units.police_administrative_unit) ORDER BY 1) TO 'accidents_with_exceeded_alcohol_per_ordered_breathalysers.csv' WITH (FORMAT csv, HEADER true);
 ```
 
 ### positive_breathalysers_per_ordered_breathalysers
-(num_positive_breathalyser_tests / num_ordered_breathalyser_tests * 1000)
+(num_positive_breathalyser_tests / num_ordered_breathalyser_tests * 10)
 ```
 \COPY (SELECT unitid, (num_positive_breathalyser_tests::DECIMAL / num_ordered_breathalyser_tests::DECIMAL * 10) AS positive_breathalysers_per_ordered_breathalysers FROM accidents_and_breathalysers, units WHERE (accidents_and_breathalysers.police_administrative_unit = units.police_administrative_unit) ORDER BY 1) TO 'positive_breathalysers_per_ordered_breathalysers.csv' WITH (FORMAT csv, HEADER true);
 ```
